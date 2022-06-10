@@ -58,9 +58,41 @@ function playRound(playerSelection, computerSelection){
     }
     return roundResult;
 }
+
 // for loop to 5 rounds
-//     get computer choice
-//     get user choice
-//     play round
-//     add point to winner 
-//     if wins == 3 break out of for loop.
+function game(){
+
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++){
+
+        // get computer and user choices and play one round
+        let roundResult = playRound(playerPlay(), computerPlay());
+
+        // add point to winner and display score
+        if (roundResult == "Player") {
+            playerScore++;
+            alert(`You get a point.  P${playerScore} X C${computerScore}`)
+        }
+        else if (roundResult == "Computer") {
+            computerScore++;
+            alert(`Computer gets a point.  P${playerScore} X C${computerScore}`)
+        }
+        else {
+            alert(`Tie.  P${playerScore} X C${computerScore}`)
+        }
+        // if someone has 3 points, end loop
+        if (playerScore == 3 || computerScore == 3){
+                break;
+        }
+    }
+    if (playerScore > computerScore){
+        alert("You Win!");
+    }
+    else if (computerScore > playerScore){
+        alert("You lose!");
+    }
+    else {
+        alert("It's a Tie!");
+    }
+}
