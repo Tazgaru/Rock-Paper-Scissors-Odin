@@ -10,6 +10,12 @@ function computerPlay(){
 }
 
 // function to get user choice
+function playerPlay(){
+    let playerSelection = prompt("What's your choice?");
+    playerSelection = playerSelection.toLowerCase()
+    return playerSelection;
+}
+
 // function to play one round
 // for loop to 5 rounds
 //     get computer choice
