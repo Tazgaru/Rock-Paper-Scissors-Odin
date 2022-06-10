@@ -17,6 +17,47 @@ function playerPlay(){
 }
 
 // function to play one round
+// returns string with result
+function playRound(playerSelection, computerSelection){
+    let roundResult;
+    if (playerSelection == "rock"){
+        if (computerSelection == "Paper"){
+            roundResult = "Computer";
+        }
+        else if (computerSelection == "Scissors"){
+            roundResult = "Player";
+        }
+        else {
+            roundResult = "Tie";
+        }
+    }
+    else if (playerSelection == "paper"){
+        if (computerSelection == "Rock"){
+            roundResult = "Player";
+        }
+        else if (computerSelection == "Scissors"){
+            roundResult = "Computer";
+        }
+        else {
+            roundResult = "Tie";
+        }
+    }
+    else if (playerSelection == "scissors") {
+        if (computerSelection == "Rock"){
+            roundResult = "Computer";
+        }
+        else if (computerSelection == "Paper"){
+            roundResult = "Player";
+        }
+        else {
+            roundResult = "Tie";
+        }
+    }
+    else {
+        alert("Invalid entry. Please type 'rock', 'paper' or 'scissors'.")
+    }
+    return roundResult;
+}
 // for loop to 5 rounds
 //     get computer choice
 //     get user choice
