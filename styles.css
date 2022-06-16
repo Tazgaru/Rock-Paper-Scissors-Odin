@@ -1,0 +1,101 @@
+h1, button {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    flex: 1;
+    image-rendering: pixelated;
+}
+
+.wrapper {
+    border: 1px solid black;
+    padding: 2vw;
+    max-width: 1700px;
+    width: 70vw;
+    margin: auto;
+}
+
+/*--- header ---*/
+.header {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 0 24px;
+
+}
+
+.name-tag {
+    flex: 1 1 0;
+    max-width: 200px;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 1.5em;
+    margin: auto 0;
+}
+
+.round-winner {
+    flex: 1 1 0;
+    max-width: 300px;
+    border: 1px solid black;
+    text-align: center;
+    font-size: .8em;
+}
+
+/*--- mid ---*/
+
+.mid {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    margin-top: 24px;
+    padding: 64px 32px 24px;
+}
+
+.mid_1, .mid_2, .mid_3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1 1 0;
+    gap: 24px;
+}
+
+.img1, .img2, .img3 {
+    flex: 0 1 auto;  /*is the default*/
+    display: flex;
+    justify-content: center;
+}
+
+.img1, .img3 {
+    border: 1px solid black;
+}
+
+.img2 {
+    max-width: 70px;
+    margin: auto;
+}
+
+.score {
+    border: 1px solid black;
+    text-align: center;
+    align-self: center;
+    padding: 8px 32px;
+}
+
+/*--- footer ---*/
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.footer button {
+    display: flex;
+    flex: 1;
+    margin: 24px 8px;
+    max-width: 100px;
+}
+
+.footer button img {
+    flex: 1;
+}

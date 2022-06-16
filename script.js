@@ -1,3 +1,8 @@
+const choiceBtns = document.querySelectorAll('.footer button');
+
+choiceBtns.forEach(btn => btn.addEventListener('click', () => console.log('Button Pressed')));
+
+
 // function to get computer choice.
 function computerPlay(){
 
@@ -79,29 +84,24 @@ function game(){
     let playerScore = 0;
     let computerScore = 0;
 
-    // for loop to 5 rounds
-    for (let i = 0; i < 5; i++){
+    
 
-        // get computer and user choices and play one round
-        let roundResult = playRound(playerPlay(), computerPlay());
+    // get computer and user choices and play one round
+    let roundResult = playRound(playerPlay(), computerPlay());
 
-        // add point to winner and display score
-        if (roundResult == "Player") {
-            playerScore++;
-            alert(`You get a point.  P${playerScore} X C${computerScore}`)
-        }
-        else if (roundResult == "Computer") {
-            computerScore++;
-            alert(`Computer gets a point.  P${playerScore} X C${computerScore}`)
-        }
-        else {
-            alert(`Tie.  P${playerScore} X C${computerScore}`)
-        }
-        // if someone has 3 points, end loop
-        if (playerScore == 3 || computerScore == 3){
-                break;
-        }
+    // add point to winner and display score
+    if (roundResult == "Player") {
+        playerScore++;
+        alert(`Player gets a point.  P${playerScore} X C${computerScore}`)
     }
+    else if (roundResult == "Computer") {
+        computerScore++;
+        alert(`Computer gets a point.  P${playerScore} X C${computerScore}`)
+    }
+    else {
+        alert(`Tie.  P${playerScore} X C${computerScore}`)
+    }
+    
 
     if (playerScore > computerScore){
         alert("You Win!");
