@@ -1,6 +1,6 @@
 const choiceBtns = document.querySelectorAll('.footer button');
-
-choiceBtns.forEach(btn => btn.addEventListener('click', () => console.log('Button Pressed')));
+// when a button is clicked, call main game function
+choiceBtns.forEach(btn => btn.addEventListener('click', game));
 
 
 // function to get computer choice.
@@ -84,10 +84,8 @@ function game(){
     let playerScore = 0;
     let computerScore = 0;
 
-    
-
-    // get computer and user choices and play one round
-    let roundResult = playRound(playerPlay(), computerPlay());
+    // play a round with button's class value as player choice
+    let roundResult = playRound(this.classList.value, computerPlay());
 
     // add point to winner and display score
     if (roundResult == "Player") {
