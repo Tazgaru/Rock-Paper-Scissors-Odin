@@ -114,8 +114,20 @@ body {
     flex: 1;
     margin: 24px 8px;
     max-width: 100px;
+    transition-timing-function: ease-in;
+    transition: .3s;
 }
 
 .footer button img {
     flex: 1;
+}
+
+
+.footer button:hover {
+    border: 2px solid rgb(255, 0, 0);
+}
+
+.footer button:active {
+    background-color: silver;
+    transition: none;
 }

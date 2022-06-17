@@ -2,6 +2,8 @@ const choiceBtns = document.querySelectorAll('.footer button');
 const roundWinnerDisplay = document.querySelector('.round-winner');
 const playerScoreDisplay = document.querySelector('.player-score');
 const computerScoreDisplay = document.querySelector('.computer-score');
+const playerChoiceImg= document.querySelector('.img1 img');
+const computerChoiceImg = document.querySelector('.img3 img');
 
 
 let playerScore = 0;
@@ -19,13 +21,13 @@ function computerPlay(){
     let number = Math.floor(Math.random()*3);
 
     if (number == 0) {
-        computerSelection = "Rock"
+        computerSelection = "rock"
     }
     else if (number == 1) {
-        computerSelection = "Paper"
+        computerSelection = "paper"
     }
     else {
-        computerSelection = "Scissors"
+        computerSelection = "scissors"
     }
 
     return computerSelection;
@@ -46,12 +48,14 @@ function playerPlay(){
 function playRound(playerSelection, computerSelection){
 
     let roundResult;
+    playerChoiceImg.src = `./images/${playerSelection}.png`
+    computerChoiceImg.src = `./images/${computerSelection}.png`
 
     if (playerSelection == "rock"){
-        if (computerSelection == "Paper"){
+        if (computerSelection == "paper"){
             roundResult = "Computer";
         }
-        else if (computerSelection == "Scissors"){
+        else if (computerSelection == "scissors"){
             roundResult = "Player";
         }
         else {
@@ -59,10 +63,10 @@ function playRound(playerSelection, computerSelection){
         }
     }
     else if (playerSelection == "paper"){
-        if (computerSelection == "Rock"){
+        if (computerSelection == "rock"){
             roundResult = "Player";
         }
-        else if (computerSelection == "Scissors"){
+        else if (computerSelection == "scissors"){
             roundResult = "Computer";
         }
         else {
@@ -70,7 +74,7 @@ function playRound(playerSelection, computerSelection){
         }
     }
     else if (playerSelection == "scissors") {
-        if (computerSelection == "Rock"){
+        if (computerSelection == "rock"){
             roundResult = "Computer";
         }
         else if (computerSelection == "Paper"){
@@ -80,19 +84,8 @@ function playRound(playerSelection, computerSelection){
             roundResult = "Tie";
         }
     }
-    else {
-        alert("Invalid entry. Please type 'rock', 'paper' or 'scissors'.")
-    }
 
     return roundResult;
-}
-
-function resetGame() {
-    playerScore = 0;
-    computerScore = 0;
-    playerScoreDisplay.textContent = playerScore;
-    computerScoreDisplay.textContent = computerScore;
-    roundWinnerDisplay.textContent = '------';
 }
 
 // main game function
@@ -100,7 +93,6 @@ function game(){
 
     // play a round with button's class value as player choice
     let roundResult = playRound(this.classList.value, computerPlay());
-
 
     if (roundResult == "Player") {
         playerScore++;
@@ -118,11 +110,16 @@ function game(){
     
 
     if (playerScore == 5){
-        alert("You Win!");
-        resetGame();
+        setTimeout(() => {
+            alert("You Win!"), 10;
+            window.location.reload();
+        })
+        
     }
     else if (computerScore == 5){
-        alert("You Lose!");
-        resetGame();
+        setTimeout(() => {
+            alert("You Lose!"), 10;
+            window.location.reload();
+        })
     }
 }
