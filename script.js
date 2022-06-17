@@ -1,4 +1,13 @@
 const choiceBtns = document.querySelectorAll('.footer button');
+const roundWinnerDisplay = document.querySelector('.round-winner');
+const playerScoreDisplay = document.querySelector('.player-score');
+const computerScoreDisplay = document.querySelector('.computer-score');
+
+
+let playerScore = 0;
+let computerScore = 0;
+
+
 // when a button is clicked, call main game function
 choiceBtns.forEach(btn => btn.addEventListener('click', game));
 
@@ -78,36 +87,42 @@ function playRound(playerSelection, computerSelection){
     return roundResult;
 }
 
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
+    roundWinnerDisplay.textContent = '------';
+}
+
 // main game function
 function game(){
-
-    let playerScore = 0;
-    let computerScore = 0;
 
     // play a round with button's class value as player choice
     let roundResult = playRound(this.classList.value, computerPlay());
 
-    // add point to winner and display score
+
     if (roundResult == "Player") {
         playerScore++;
-        alert(`Player gets a point.  P${playerScore} X C${computerScore}`)
+        roundWinnerDisplay.textContent = "Player!";
+        playerScoreDisplay.textContent = playerScore;
     }
     else if (roundResult == "Computer") {
         computerScore++;
-        alert(`Computer gets a point.  P${playerScore} X C${computerScore}`)
+        roundWinnerDisplay.textContent = "Computer!";
+        computerScoreDisplay.textContent = computerScore;
     }
     else {
-        alert(`Tie.  P${playerScore} X C${computerScore}`)
+        roundWinnerDisplay.textContent = "It's a tie!";
     }
     
 
-    if (playerScore > computerScore){
+    if (playerScore == 5){
         alert("You Win!");
+        resetGame();
     }
-    else if (computerScore > playerScore){
-        alert("You lose!");
-    }
-    else {
-        alert("It's a Tie!");
+    else if (computerScore == 5){
+        alert("You Lose!");
+        resetGame();
     }
 }

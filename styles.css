@@ -46,7 +46,7 @@ body {
     margin: auto 0;
 }
 
-.round-winner {
+.round-result {
     flex: 1 1 0;
     max-width: 300px;
     padding: 1%;
